@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-11 col-md-7 mx-auto mt-5 card">
+            <div class="card-body">
+            <h1>Register</h1>
+            <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm.value)">
+                <div class="form-group">
+                    <label for="e_mail">E-mail : </label>
+                    <input type="email" class="form-control" placeholder="กรุณากรอก E-mail" name="e_mail" id="e_mail" #e_mail="ngModel" ngModel required email>
+                </div>
+                <div *ngIf="e_mail.errors" class="text-danger">
+                    <div [hidden]="!e_mail.errors">
+                        กรุณากรอกข้อมูลรูปแบบ E-mail ให้ถูกต้อง เช่น email@ab.co
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password : </label>
+                    <input type="password" class="form-control" placeholder="กรุณากรอก Password" name="pwd" id="pwd" #pwd="ngModel" ngModel required minlength="6" maxlength="20">
+                </div>
+                <div *ngIf="pwd.errors && (pwd.dirty || pwd.touched)" class="text-danger">
+                    <div [hidden]="!pwd.errors['minlength']">
+                        กรุณากรอกข้อมูล Password อย่างน้อย 6 ตัวอักษรและไม่เกิน 20 ตัวอักษร
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cf_pwd">Password : </label>
+                    <input type="password" class="form-control" placeholder="กรุณากรอก Confirm Password" name="cf_pwd" id="cf_pwd" #cf_pwd="ngModel" ngModel required minlength="6" maxlength="20">
+                </div>
+                <div *ngIf="cf_pwd.errors && (cf_pwd.dirty || cf_pwd.touched)" class="text-danger" >
+                    <div [hidden]="!cf_pwd.errors['minlength']">
+                        กรุณากรอกข้อมูลให้ตรงกับ Password และมีจำนวนตัวอักษรอย่างน้อย 6 ตัวอักษรและไม่เกิน 20 ตัวอักษร
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fname">ชื่อ : </label>
+                    <input type="text" class="form-control" placeholder="กรุณากรอกชื่อ" name="fname" id="fname" #fname="ngModel" ngModel required minlength="2" maxlength="20">
+                </div>
+                <div *ngIf="fname.errors" class="text-danger">
+                    <div [hidden]="!fname.errors">
+                        ข้อมูลชื่ออย่างน้อยต้องมี 2 ตัวอักษร และไม่เกิน 20 ตัวอักษร
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lname">ชื่อ : </label>
+                    <input type="text" class="form-control" placeholder="กรุณากรอกชื่อ" name="lname" id="lname" #lname="ngModel" ngModel required minlength="2" maxlength="20">
+                </div>
+                <div *ngIf="lname.errors" class="text-danger">
+                    <div [hidden]="!lname.errors">
+                        ข้อมูลนามสกุลอย่างน้อยต้องมี 2 ตัวอักษร และไม่เกิน 20 ตัวอักษร
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary mt-2 me-2" [disabled]="!registerForm.form.valid">Register</button>
+                <button type="reset" class="btn btn-danger mt-2 me-2" [disabled]="!registerForm.form.valid">Clear</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+

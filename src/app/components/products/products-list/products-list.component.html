@@ -1,0 +1,35 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-11 col-md-7 mx-auto mt-5 card">
+            <div class="card-body">
+                <h1><p>รายการสินค้าทั้งหมด</p></h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">รหัสสินค้า</th>
+                                <th scope="col">ชื่อสินค้า</th>
+                                <th scope="col">ราคาสินค้า</th>
+                                <th scope="col">รายละเอียดสินค้า</th>
+                                <th class="text-center" scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of products;let i=index">
+                                <td>{{product.product_id}}</td>
+                                <td>{{product.product_name}}</td>
+                                <td>{{product.product_price}}</td>
+                                <td>{{product.product_description}}</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-primary" routerLink="/edit-product/{{product._id}}">Edit</button>
+                                    <button class="btn btn-sm btn-danger" (click)="delete(product._id,i)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

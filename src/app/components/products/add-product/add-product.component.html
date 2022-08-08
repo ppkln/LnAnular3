@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-11 col-md-7 mx-auto mt-5 card">
+            <div class="card-body">
+                <h1><p>Add Product (TemplateDivenForm)</p></h1>
+                <div class="container">
+                    <form #addProductForm="ngForm" (ngSubmit)="onSubmit(addProductForm.value)">
+                        <div class="form-group">
+                            <label for="productId">Product Id</label>
+                            <input type="text" class="form-control" name="productId" id="productId" #productId="ngModel" ngModel required  >
+                        </div>
+                        <div *ngIf="productId.errors" class="text-danger">
+                            <div [hidden]="!productId.errors">
+                                กรุณากรอกข้อมูลรหัสสินค้าตามที่ท่านต้องการ
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productName">Product Name</label>
+                            <input type="text" class="form-control" name="productName" id="productName" #productName="ngModel" ngModel required  >
+                        </div>
+                        <div *ngIf="productName.errors" class="text-danger">
+                            <div [hidden]="!productName.errors">
+                                กรุณากรอกข้อมูลชื่อสินค้า
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productPrice">Product Price</label>
+                            <input type="number" class="form-control" name="productPrice" id="productPrice" #productPrice="ngModel" ngModel required >
+                        </div>
+                        <div *ngIf="productPrice.errors" class="text-danger">
+                            <div [hidden]="!productPrice.errors">
+                                กรุณากรอกข้อมูลราคาสินค้า (เป็นตัวเลข)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Product Description</label>
+                            <!-- <input type="text" class="form-control" name="productDescription" id="productDescription" #productDescription="ngModel" ngModel required  > -->
+                            <textarea class="form-control" name="productDescription" id="productDescription" #productDescription="ngModel" ngModel required ></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2" [disabled]="!addProductForm.form.valid">Add Product</button>
+                    </form>
+                </div>
+                <div class="container">สถานะแบบฟอร์ม (Valid) : {{addProductForm.valid}}</div>
+            </div>
+        </div>
+    </div>
+</div>

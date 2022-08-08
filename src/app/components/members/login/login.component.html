@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-11 col-md-7 mx-auto mt-5 card">
+            <div class="card-body">
+            <h1>ลงชื่อเข้าระบบ</h1>
+            {{userLogin}}
+            <form #loginForm="ngForm"  (ngSubmit)="onSubmit(loginForm.value)">
+                <div class="form-group">
+                    <label for="e_mail">E-mail : </label>
+                    <input type="email" class="form-control someInput" size="8" name="e_mail" id="e_mail" #e_mail="ngModel" ngModel required minlength="6" maxlength="20" placeholder="e-mail">
+                </div>
+                <div *ngIf="e_mail.errors && (e_mail.dirty || e_mail.touched)" class="alert alert-danger">
+                    <div [hidden]="!e_mail.errors">
+                        กรุณากรอก E-mail
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password : </label>
+                    <input type="password" class="form-control someInput" size="8" name="pwd" id="pwd" ngModel #pwd="ngModel" required placeholder="password">
+                    <div style="margin-top:.5rem"><input type="checkbox" onclick="togglePassword()"> แสดงรหัสผ่าน</div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary mt-2 me-2" type="submit" [disabled]="!loginForm.form.valid">Submit</button>
+                    <button class="btn btn-danger mt-2 me-2" type="reset" [disabled]="!loginForm.form.valid">Cancel</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ฟังก์ชันแสดง/ซ่อน password -->
+<script type="text/javascript">
+    function togglePassword() {
+        window.alert("Hello");
+        var pwd = document.getElementById("pwd");
+        ( pwd.type === "password" ) ? pwd.type = "text": pwd.type = "password";
+    }
+</script>
+
