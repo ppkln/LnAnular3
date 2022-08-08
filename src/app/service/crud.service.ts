@@ -72,7 +72,7 @@ Login(data:any): Observable<any>{
     console.log("อยู่ในคำสัง .pipe แล้ว");
     console.log("ค่าของ res.sessionLoginStatus = "+res.sessionLoginStatus)
     console.log("ค่าของ res.sessionUserName = "+res.sessionUserName)
-    this.userLogin = res.sessionUserName;
+    this.userLogin = res.sessionUserID;
     console.log(res);
     return res || {}
   }),

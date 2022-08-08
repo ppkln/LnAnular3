@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
       window.alert("ทำการ Login เข้าระบบสำเร็จแล้ว");
       console.log("มาถึงการทำงาน onSubmit หน้า login.component.ts แล้ว");
       console.log("อยู่หน้า login.component.ts แล้ว ค่า session.sessionUserName = "+data.sessionUserName);
-      this.userLogin=data.sessionUserName;
-      this.ngZone.run(()=>{this.router.navigateByUrl('/')})
+      this.userLogin=data.sessionUserID;
+      this.ngZone.run(()=>{this.router.navigateByUrl('profile/'+this.userLogin)})
     },(error:any)=>{
       let loginAgn='';
       window.alert("Login เข้าระบบไม่สำเร็จ");

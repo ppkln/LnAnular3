@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'', pathMatch:'full',redirectTo:'product-list'},
   {path:'register',component:RegisterComponent},
   {path:'register/:regis',component:RegisterComponent},
-  {path:'profile/:idMem',component:ProfileComponent},
+  {path:'profile/:loginUser',component:ProfileComponent},
   {path:'update-profile/:idMem',component:UpdateProfileComponent},
   {path:'delete-member',component:DeleteMemberComponent},
   {path:'login',component:LoginComponent},
