@@ -5,6 +5,7 @@ let memberSchema = mongoose.Schema({
     pwd:{type:String,required:true},
     fname:{type:String,required:true},
     lname:{type:String,required:true},
+    imgMem:{type:String},
     statusWork:{type:Boolean, required:true}
 },{
     collection:'members'

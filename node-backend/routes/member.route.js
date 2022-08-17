@@ -1,10 +1,11 @@
 const express = require("express");
 const bcryptjs = require("bcryptjs");
-let Member = require("../models/members");
-let Product = require("../models/products");
 const session = require("express-session")
 const cookieParser = require("cookie-parser")
 const { asyncScheduler, async } = require("rxjs");
+
+let Member = require("../models/members");
+let Product = require("../models/products");
 
 const memberRoute = express.Router();
 
@@ -13,7 +14,7 @@ memberRoute.use(session({
     secret:"mykeySessionLN",
     resave:false,
     saveUninitialized:true,
-    cookie:{maxAge:30000}
+    cookie:{maxAge:3600*1000} // session อายุ 1 ชั่วโมง
 }));
 
 
