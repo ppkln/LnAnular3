@@ -1,6 +1,6 @@
 import { Component, OnInit,NgZone } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder,FormControl,Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import {CrudService} from './../../../service/crud.service';
 
 
@@ -11,10 +11,8 @@ import {CrudService} from './../../../service/crud.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm!:FormGroup;
-  useData:any;
 
   constructor(
-    public formBuilder:FormBuilder,
     private router:Router,
     private crudService:CrudService,
     private ngZone:NgZone

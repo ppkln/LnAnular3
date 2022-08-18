@@ -23,11 +23,11 @@ export class CrudService {
       
      }
 
-  // //add member
+  //add member
   Register(data:any): Observable<any> {
     let API_URL = this.REST_API+'/register';
     console.log("ค่าของ data ที่มาจากหน้า register.component.ts: "+data)
-    return this.httpClient.post(API_URL,data)
+    return this.httpClient.post(API_URL,data,{headers:this.HttpHeaders})
     .pipe(
       catchError(this.handleError)
     )
@@ -73,7 +73,7 @@ Login(data:any): Observable<any>{
     console.log("ค่าของ res.sessionLoginStatus = "+res.sessionLoginStatus)
     console.log("ค่าของ res.sessionUserName = "+res.sessionUserName)
     this.userLogin = res.sessionUserID;
-    console.log(res);
+    console.log("อยู่ใน service การ login ค่าที่ return ออกมาเมื่อ login ผ่าน = "+res);
     return res || {}
   }),
     catchError(this.handleError)

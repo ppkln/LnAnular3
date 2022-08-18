@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class ProfileComponent implements OnInit {
   userLogin:any;
+  
 
   constructor(private ngZone:NgZone,
     private router:Router,
